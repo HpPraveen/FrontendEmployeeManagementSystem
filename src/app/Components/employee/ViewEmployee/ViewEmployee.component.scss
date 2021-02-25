@@ -1,0 +1,18 @@
+.btn-warning {
+    color: #fff;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.modal-content {
+    width: 800px;
+}
+
+.asterisk::after {
+    content: " *";
+    color: #e32;
+    position: absolute;
+    margin: 0px 0px 0px -12px;
+    font-size: xx-large;
+    padding: 0 8px 0 0;
+}

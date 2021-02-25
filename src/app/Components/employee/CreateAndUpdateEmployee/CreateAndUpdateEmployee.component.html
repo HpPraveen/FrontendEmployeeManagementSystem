@@ -1,0 +1,96 @@
+<div class="form-inline">
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text asterisk" id="fName">FName :</span>
+                </div>
+                <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="fName">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text asterisk" id="lName">LName :</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="lName">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-inline">
+    <div class="col-md-7">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text asterisk" id="eDob">DOB :</span>
+                </div>
+                <input type="date" class="form-control" placeholder="Employee DOB" [(ngModel)]="eDob">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <label class="radio-inline">
+          <input type="radio" name="optradio" value="1" [(ngModel)]='genderChecked'>&nbsp; Male
+        </label>&nbsp;&nbsp;&nbsp;
+                <label class="radio-inline">
+          <input type="radio" name="optradio" value="2" [(ngModel)]='genderChecked'>&nbsp; Female
+        </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text asterisk" id="eEmail">Email :</span>
+            </div>
+            <input type="email" class="form-control" placeholder="Employee Email" [(ngModel)]="eEmail">
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text asterisk" id="eAddress">Address :</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Employee Address" [(ngModel)]="eAddress">
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text asterisk" id="eEmail">Department : </span>
+            </div>
+            <select [(ngModel)]="edepatmentId">
+        <option *ngFor="let department of DepartmentList" [ngValue]="department.id"
+        [selected]="department.id === edepatmentId">{{department.departmentName}}</option>
+      </select>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-md-12">
+    <h6>Upload Employee Image</h6>
+</div>
+<div class="form-inline">
+    <div class="col-md-6">
+        <input type="file" (change)="onFileChanged($event)">
+        <img src={{imgURL}} height="100" *ngIf="imgURL">
+    </div>
+</div>
+
+<hr/>
+<div class="col-md-12 text-right">
+    <input type="submit" class="btn btn-info" value="Add" *ngIf="employee.id == 0" (click)="addEmployeeClick()">
+    <input type="submit" class="btn btn-info" value="Update" *ngIf="employee.id != 0" (click)="editEmployeeClick()">
+</div>
